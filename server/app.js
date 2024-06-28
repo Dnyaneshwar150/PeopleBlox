@@ -33,7 +33,7 @@ mongoose.connect(mongoURL, {
 const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-    res.send('WELCOME TO PEOPLEBLOX SERVER');
+    res.send('Server is running');
 });
 
 app.listen(PORT, () => {

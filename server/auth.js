@@ -1,13 +1,13 @@
-// routes/auth.js
 const express = require('express');
 const router = express.Router();
 const User = require('./model/User');
 const jwt = require('jsonwebtoken');
 const jwtSecret = process.env.JWT_SECRET ;
 
+
 const maxFailedAttempts = 5;
 const lockTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
-
+// this is route for login
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
 
@@ -20,6 +20,7 @@ router.post('/login', async (req, res) => {
         if (user.isLocked()) {
             return res.status(403).json({ msg: 'Account locked. Try again later' });
         }
+
 
         const isMatch = await user.comparePassword(password);
         if (!isMatch) {
@@ -45,6 +46,7 @@ router.post('/login', async (req, res) => {
     }
 });
 
+//this is route for signup
 router.post('/signup', async (req, res) => {
     const { username, password } = req.body;
 
@@ -66,6 +68,8 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+
+// this is the profile route
 router.get('/profile', async (req, res) => {
     // Extract token from request headers
     const token = req.header('x-auth-token');
