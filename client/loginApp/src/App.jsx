@@ -2,32 +2,25 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './App.css';
 
-import Home from './components/Home';
-import LoginForm from './components/Login';
-import SignupForm from './components/SignUp';
+import Home from './components/Home/Home';
+import Signup from './components/Signup/Signup';
+import Login from './components/Login/Login';
 
 function App() {
-  
-
   return (
     <>
-       <Router>
-      {/* <div> */}
+      <Router>
         <ToastContainer />
-        {/* <Switch> */}
         <Routes>
-          <Route exact path="/" component={LoginForm}  element={ <LoginForm/>} />
-          <Route exact path="/signup" component={SignupForm} element={ <SignupForm/>} />
-          <Route exact path="/home" component={Home}  element={ <Home/>}/>
-
+          <Route path="/" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/home" element={<Home />} />
         </Routes>
-        {/* </Switch> */}
-      {/* </div> */}
-    </Router>
-
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

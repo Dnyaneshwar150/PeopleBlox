@@ -1,10 +1,10 @@
-// LoginForm.js
 import React, { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './style.css'
-const LoginForm = () => {
+import './Login.css';
+
+const Login = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -19,10 +19,8 @@ const LoginForm = () => {
     try {
       const res = await axios.post('http://localhost:8080/api/auth/login', { username, password });
       localStorage.setItem('token', res.data.token);
-      
       window.location.href = '/home';
     } catch (err) {
-      // Extract the error message and show it in a toast
       const errorMsg = err.response?.data?.msg || 'Login failed. Please try again.';
       toast.error(errorMsg);
       console.error(err);
@@ -31,18 +29,19 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="container">
-      <h1>Login</h1>
-      <ToastContainer className="toast-container" />
-      <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Username" name="username" value={username} onChange={onChange} />
-        <input type="password" placeholder="Password" name="password" value={password} onChange={onChange} />
-        <button type="submit">Login</button>
-      </form>
-      <button onClick={() => window.location.href = '/signup'}>Sign Up</button>
-    </div>
+      <div className="login-card">
+        <h2>Login</h2>
+        <h3>Enter your credentials</h3>
+        <ToastContainer className="toast-container" />
+        <form className="login-form" onSubmit={onSubmit}>
+          <input type="text" placeholder="Username" name="username" value={username} onChange={onChange} />
+          <input type="password" placeholder="Password" name="password" value={password} onChange={onChange} />
+          <button type="submit">LOGIN</button>
+        </form>
+        <button className="redirect-btn" onClick={() => window.location.href = '/signup'}>Sign Up</button>
+      </div>
     </>
   );
 };
 
-export default LoginForm;
+export default Login;

@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('./model/User');
 const jwt = require('jsonwebtoken');
+const jwtSecret = process.env.JWT_SECRET ;
 
 const maxFailedAttempts = 5;
 const lockTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
@@ -35,7 +36,7 @@ router.post('/login', async (req, res) => {
         user.lockUntil = undefined;
         await user.save();
 
-        const token = jwt.sign({ id: user._id }, 'ghrlpx', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id }, 'jwtSecret', { expiresIn: '30min' });
 
         res.json({ token, user: { id: user._id, username: user.username } });
     } catch (err) {
@@ -56,7 +57,7 @@ router.post('/signup', async (req, res) => {
         user = new User({ username, password });
         await user.save();
 
-        const token = jwt.sign({ id: user._id }, 'ghrlpx', { expiresIn: '1h' });
+        const token = jwt.sign({ id: user._id }, 'jwtSecret', { expiresIn: '30min' });
 
         res.json({ token, user: { id: user._id, username: user.username } });
     } catch (err) {
@@ -76,7 +77,7 @@ router.get('/profile', async (req, res) => {
 
     try {
         // Verify token
-        const decoded = jwt.verify(token, 'ghrlpx');
+        const decoded = jwt.verify(token, 'jwtSecret');
 
         // Fetch user from database using user ID from decoded token
         const user = await User.findById(decoded.id);
