@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './Signup.css';
+import { BASE_URL } from '../../../service';
 
 const Signup = () => {
   const [formData, setFormData] = useState({
@@ -17,10 +18,12 @@ const Signup = () => {
   const onSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:8080/api/auth/signup', { username, password });
+      const res = await axios.post(`${BASE_URL}/api/auth/signup`, { username, password });
       localStorage.setItem('token', res.data.token);
-      // Redirect to Home Page
-      window.location.href = '/home';
+      toast.success('Account created successfully! Redirecting to home...');
+      setTimeout(() => {
+        window.location.href = '/home';
+      }, 1000); // Add a small delay to allow the toast to be visible
     } catch (err) {
       const errorMsg = err.response?.data?.msg || 'Signup failed. Please try again.';
       toast.error(errorMsg);

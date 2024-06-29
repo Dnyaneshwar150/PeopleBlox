@@ -13,7 +13,7 @@ const Home = () => {
       navigate('/');
       return;
     }
-    axios.get('http://localhost:8080/api/auth/profile', {
+    axios.get(`${BASE_URL}/api/auth/profile`, {
       headers: {
         'x-auth-token': token,
       },

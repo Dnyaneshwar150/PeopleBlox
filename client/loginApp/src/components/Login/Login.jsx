@@ -19,7 +19,10 @@ const Login = () => {
     try {
       const res = await axios.post('http://localhost:8080/api/auth/login', { username, password });
       localStorage.setItem('token', res.data.token);
-      window.location.href = '/home';
+      toast.success('Login successful! Redirecting to home...');
+      setTimeout(() => {
+        window.location.href = '/home';
+      }, 1000); // Add a small delay to allow the toast to be visible
     } catch (err) {
       const errorMsg = err.response?.data?.msg || 'Login failed. Please try again.';
       toast.error(errorMsg);
