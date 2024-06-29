@@ -6,7 +6,7 @@ import './Signup.css';
 import { BASE_URL } from '../../../service'
 
 
-const Signup = () => {
+const Register = () => {
   const [formData, setFormData] = useState({
     username: '',
     password: ''
@@ -49,4 +49,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;

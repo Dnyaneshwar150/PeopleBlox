@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 import Home from './components/Home/Home';
-import Signup from './components/SignUp/Signup';
+import Signup from './components/SignUp/Register';
 import Login from './components/Login/Login';
 
 function App() {
