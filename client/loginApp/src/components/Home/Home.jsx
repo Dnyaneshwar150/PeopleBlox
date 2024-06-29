@@ -43,9 +43,9 @@ const Home = () => {
 
   return (
     <div className="container">
-      <h1><strong>Welcome, {username}</strong></h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum ante sed aliquet aliquam. Nulla facilisi. Proin auctor, justo ac auctor malesuada, neque felis pretium magna, in auctor nulla magna non velit.</p>
-      <p>Mauris vel ligula sed felis volutpat faucibus. Vestibulum vestibulum interdum purus, at faucibus sem tincidunt vel. Fusce sit amet malesuada metus. Donec feugiat consequat ipsum, ac egestas elit sodales non.</p>
+      <h1><strong>Welcome {username}</strong></h1>
+. <p>     PeopleBlox is a cutting-edge Talent Intelligence SaaS platform that helps global organizations in their talent transformation journey </p>      
+<p>With a unique patent-pending Competency Deconstruction Framework and a dynamic Competency Lifecycle Management SaaS platform, PeopleBlox enables companies to measure their Talent Readiness Index (TRI) and efficiently manage employee competencies throughout their journey within the organization.</p>
       <button className="LogoutButton" onClick={handleLogout}>Logout</button>
     </div>
   );
