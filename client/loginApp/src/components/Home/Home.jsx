@@ -3,8 +3,11 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './Home.css'; // Import the CSS file
 
+const BASE_URL = 'https://peopleblox.onrender.com'; // Ensure BASE_URL is defined
+
 const Home = () => {
   const [username, setUsername] = useState('');
+  const [loading, setLoading] = useState(true); // Add loading state
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,9 +23,11 @@ const Home = () => {
     })
       .then(res => {
         setUsername(res.data.username);
+        setLoading(false); // Set loading to false once data is fetched
       })
       .catch(err => {
         console.error(err);
+        localStorage.removeItem('token'); // Ensure token is cleared if there's an error
         navigate('/');
       });
   }, [navigate]);
@@ -31,6 +36,10 @@ const Home = () => {
     localStorage.removeItem('token');
     navigate('/');
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // Show a loading message while fetching data
+  }
 
   return (
     <div className="container">

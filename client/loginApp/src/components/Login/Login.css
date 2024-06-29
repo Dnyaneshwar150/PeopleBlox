@@ -1,124 +1,100 @@
 * {
-    box-sizing: border-box;
-  }
-  
-  html,
-  body,
-  .wrapper {
-    height: 100%;
-  }
-  
-  @keyframes rotate {
-    100% {
-      background-position: 15% 50%;
-    }
-  }
-  
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    background-image: url("login_background.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: "Euclid Circular A", sans-serif;
-    color: #000;
-    animation: rotate 6s infinite alternate linear;
-  }
-  
-  .login-card {
-    position: relative;
-    z-index: 3;
-    width: 100%;
-    max-width: 600px; /* Increased max-width for larger card */
-    margin: 0 20px;
-    padding: 70px 30px 44px;
-    border-radius: 1.25rem;
-    background: #fff;
-    text-align: center;
-  }
-  
-  .login-card > h2 {
-    font-size: 36px;
-    font-weight: 600;
-    margin: 0 0 12px;
-  }
-  
-  .login-card > h3 {
-    color: rgba(0, 0, 0, 0.38);
-    margin: 0 0 30px;
-    font-weight: 500;
-    font-size: 1rem;
-  }
-  
-  .login-form {
-    width: 100%;
-    margin: 0;
-    display: grid;
-    gap: 16px;
-  }
-  
-  .login-form > input,
-  .login-form > button {
-    width: 100%;
-    height: 56px;
-  }
-  
-  .login-form > input {
-    border: 2px solid #ebebeb;
-    font-family: inherit;
-    font-size: 16px;
-    padding: 0 16px;
-  }
-  
-  .login-form > button {
-    cursor: pointer;
-    width: 100%;
-    height: 56px;
-    padding: 0 16px;
-    border-radius: 0.5rem;
-    background: #216ce7;
-    color: #f9f9f9;
-    border: 0;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 2px;
-    transition: all 0.375s;
-  }
-  
-  .login-form > button:hover {
-    background-color: #002B50;
-  }
-  
-  .login-form > a {
-    color: #294FA6;
-    font-size: 1rem;
-    text-align: left;
-    text-decoration: none;
-    margin-bottom: 6px;
-  }
-  
-  .redirect-btn {
-    margin-top: 16px;
-    background-color: #294FA6;
-    color: #f9f9f9;
-    border: 0;
-    font-size: 1rem;
-    font-weight: 600;
-    text-align: center;
-    letter-spacing: 2px;
-    border-radius: 0.5rem;
-    padding: 0 16px;
-    height: 56px;
-    cursor: pointer;
-    transition: all 0.375s;
-  }
-  
-  .redirect-btn:hover {
-    background-color: #002B50;
-  }
-  
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff; /* Ensure a light background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Consistent font */
+}
+
+.login-card {
+  background-color: #fff;
+  padding: 70px 50px 44px 30px;
+  margin: 0 10px 0px 50px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px; /* Adjust max-width for a better fit */
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+h3 {
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.login-form {
+  display: grid;
+  gap: 16px;
+}
+
+.login-form > input,
+.login-form > button {
+  width: 100%;
+  height: 50px; /* Adjust height for a better fit */
+  padding: 0 16px;
+  border-radius: 8px; /* Round the corners */
+  font-size: 16px;
+}
+
+.login-form > input {
+  border: 2px solid #ddd;
+}
+
+.login-form > button {
+  cursor: pointer;
+  background: #216ce7;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease;
+}
+
+.login-form > button:hover {
+  background-color: #0056b3;
+}
+
+.redirect-btn {
+  margin-top: 12px;
+  background-color: #294fa6;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.redirect-btn:hover {
+  background-color: #003d7a;
+}
+
+.toast-container {
+  z-index: 1000;
+}

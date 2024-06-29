@@ -1,4 +1,7 @@
 
+
+
+
 .Toastify__toast-container {
   width: 100%;
   box-sizing: border-box;
@@ -12,7 +15,7 @@
 }
 
 .Toastify__toast {
-  margin-top: 30px; /* Adjust for spacing from top */
+  margin-top: 10px; /* Adjust for spacing from top */
   max-width: 600px; /* Adjust as needed */
   width: 100%;
 }
