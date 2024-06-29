@@ -23,7 +23,7 @@ const Signup = () => {
       toast.success('Account created successfully! Redirecting to home...');
       setTimeout(() => {
         window.location.href = '/home';
-      }, 1000); // Add a small delay to allow the toast to be visible
+      },200); // Add a small delay to allow the toast to be visible
     } catch (err) {
       const errorMsg = err.response?.data?.msg || 'Signup failed. Please try again.';
       toast.error(errorMsg);
