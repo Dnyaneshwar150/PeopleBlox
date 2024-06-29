@@ -72,12 +72,3 @@ This web application allows users to register, log in, and access a home page, w
 - **Login**: `POST /api/auth/login`
 - **Get User**: `GET /api/user` (requires JWT token)
 
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-- **Name**: Your Name
-- **Email**: your-email@example.com
-- **Project Link**: [https://github.com/your-username/your-repo-name](https://github.com/your-username/your-repo-name)
