@@ -15,7 +15,7 @@
 }
 
 .Toastify__toast {
-  margin-top: 10px; /* Adjust for spacing from top */
+  margin-top: 50px; /* Adjust for spacing from top */
   max-width: 600px; /* Adjust as needed */
   width: 100%;
 }
