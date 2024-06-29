@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 import Home from './components/Home/Home';
-import Signup from './components/SignUp/Signup'; // Ensure this matches the file name casing
+import Signup from './components/SignUp/Signup';
 import Login from './components/Login/Login';
 
 function App() {
